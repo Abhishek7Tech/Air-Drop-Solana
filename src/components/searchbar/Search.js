@@ -15,6 +15,7 @@ function SearchBar(props) {
   const tokenInputHandler = (e) => {
     e.preventDefault();
     const no = e.target.value || 1;
+
     if (no > 101 || no < 1) {
       alert("Limit is between 1 to 100 🤞🤞");
     }
@@ -30,7 +31,7 @@ function SearchBar(props) {
     setDevnet(false);
     await fetchSOL(id, token);
     setDevnet(true);
-
+    setToken(1);
     e.target.reset();
   };
   return (
@@ -56,6 +57,7 @@ function SearchBar(props) {
               type={"number"}
               min={0}
               defaultValue={1}
+              max={100}
               name={"token"}
               onChange={tokenInputHandler}
             ></input>

@@ -4,7 +4,7 @@ const web3 = require("@solana/web3.js");
 const web3SPL = require("@solana/spl-token");
 
 async function transferSOL(id, token) {
-  console.log(id, token);
+  console.log(id, +token * web3.LAMPORTS_PER_SOL);
   const receiverPublicKey = new web3.PublicKey(
     id
   );
@@ -52,12 +52,7 @@ async function transferSOL(id, token) {
     );
 
 
-    const senderAccountInfo = await web3SPL.getAccount(
-      connection,
-      senderTokenAccount.address
-    )
-
-    console.log("BEFORE minting",senderAccountInfo.amount + "")
+   
     let signature = await web3SPL.mintTo(
       connection,
       senderWallet,
@@ -76,10 +71,13 @@ async function transferSOL(id, token) {
       senderTokenAccount.address,
       receiverTokenAccount.address,
       senderWallet.publicKey,
-      +token * web3.LAMPORTS_PER_SOL
+      +token
     );
   
-   
+    const senderAccountInfo = await web3SPL.getAccount(
+      connection,
+      senderTokenAccount.address
+    )
 
     console.log("sender",senderAccountInfo.amount + "");
 
