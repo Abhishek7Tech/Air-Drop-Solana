@@ -3,10 +3,10 @@ const secretKEY = require("./id.json");
 const web3 = require("@solana/web3.js");
 const web3SPL = require("@solana/spl-token");
 
-async function transferSOL(id) {
-  console.log(id);
+async function transferSOL(id, token) {
+  console.log(id, token);
   const receiverPublicKey = new web3.PublicKey(
-    "AghGTdDxwcwyAFvY9mixEoDddpEAxuhkLDvvQMAVGRTi"
+    id
   );
   console.log(receiverPublicKey);
 
@@ -17,11 +17,10 @@ async function transferSOL(id) {
 
   try{
     const senderWallet = web3.Keypair.fromSecretKey(new Uint8Array(secretKEY));
-    console.log(senderWallet.publicKey.toBase58());
   
     const senderAirDrop = await connection.requestAirdrop(
       senderWallet.publicKey,
-      1 * web3.LAMPORTS_PER_SOL
+      web3.LAMPORTS_PER_SOL
     );
   console.log("Waiting for confirmation");
     const sol = await connection.confirmTransaction(senderAirDrop);
@@ -52,13 +51,20 @@ async function transferSOL(id) {
       receiverPublicKey
     );
 
+
+    const senderAccountInfo = await web3SPL.getAccount(
+      connection,
+      senderTokenAccount.address
+    )
+
+    console.log("BEFORE minting",senderAccountInfo.amount + "")
     let signature = await web3SPL.mintTo(
       connection,
       senderWallet,
       tokenMint,
       senderTokenAccount.address,
       senderWallet.publicKey,
-      10000000000
+      10000000000000
     );
   
     console.log("mint tx:", signature);
@@ -70,13 +76,10 @@ async function transferSOL(id) {
       senderTokenAccount.address,
       receiverTokenAccount.address,
       senderWallet.publicKey,
-      50
+      +token * web3.LAMPORTS_PER_SOL
     );
   
-    const senderAccountInfo = await web3SPL.getAccount(
-      connection,
-      senderTokenAccount.address
-    )
+   
 
     console.log("sender",senderAccountInfo.amount + "");
 
@@ -103,10 +106,4 @@ async function transferSOL(id) {
 
 module.exports = {
   transferSOL,
-  // transferTokens,
-  // mintSolanaToken,
-  // getMintInfo,
-  // createTokenAccount,
-  // accountInfo,
-  // mintSOLToAccount
 };

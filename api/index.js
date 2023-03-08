@@ -17,7 +17,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../", "../", "build")));
-app.get("/acc/:id", transferSOLTokens);
+app.get("/acc/:id/:token", transferSOLTokens);
 // app.get("/min",mint);
 
 // app.get("/transfer",transferTOkens);
