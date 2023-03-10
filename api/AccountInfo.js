@@ -4,6 +4,8 @@ const web3 = require("@solana/web3.js");
 const web3SPL = require("@solana/spl-token");
 const { getAccount } = require("@solana/spl-token");
 
+// SEND TOKENS//
+
 // async function transferSOL(id, token) {
 //   console.log(id, +token * web3.LAMPORTS_PER_SOL);
 //   const receiverPublicKey = new web3.PublicKey(
@@ -99,6 +101,8 @@ const { getAccount } = require("@solana/spl-token");
 //   }
 // }
 
+
+// SEND SOL //
 async function transferSOL(id, token) {
   console.log(id, +token * web3.LAMPORTS_PER_SOL);
   const receiverPublicKey = new web3.PublicKey(id);
