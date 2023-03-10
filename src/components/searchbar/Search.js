@@ -8,7 +8,6 @@ function SearchBar(props) {
   const idInputHandler = (e) => {
     e.preventDefault();
     const id = e.target.value.trim();
-    console.log("INPUT", id);
     setID(id);
   };
 
@@ -16,15 +15,14 @@ function SearchBar(props) {
     e.preventDefault();
     const no = e.target.value || 1;
 
-    if (no > 101 || no < 1) {
-      alert("Limit is between 1 to 100 🤞🤞");
+    if (no > 2 || no < 1) {
+      alert("Limit is between 1 to 2 🤞🤞");
     }
     setToken(no);
   };
   const devnetBtnHandler = async (e) => {
     e.preventDefault();
     if (!id) {
-      console.log("RESET", id);
       alert("⚓🚨 Enter a valid id!⚓");
       e.target.reset();
     }
@@ -57,7 +55,7 @@ function SearchBar(props) {
               type={"number"}
               min={0}
               defaultValue={1}
-              max={100}
+              max={2}
               name={"token"}
               onChange={tokenInputHandler}
             ></input>

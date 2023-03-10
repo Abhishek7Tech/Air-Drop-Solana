@@ -6,14 +6,12 @@ async function fetchSOL(id,amt){
         console.log("RESPONSE", response);
         
         const receiver = response.data.receiver;
-        const receiverbalance = +response.data.receiverbalance;
         const sender = response.data.sender;
         const signature = response.data.signature;
        if(response.data.message !== 0)
         alert(`Congratulations 🎉🎉 
           receiver: ${receiver} 
-          receiverbalance: ${receiverbalance}
-          sender: ${sender}
+          sender: ${sender} 
           signature: ${signature} 
           `);
 
