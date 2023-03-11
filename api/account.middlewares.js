@@ -1,7 +1,6 @@
 const { json } = require("express");
 const { transferSOL } = require("./AccountInfo");
-const dotenv = require("dotenv").config("");
-console.log(dotenv);
+// const dotenv = require("dotenv").config("");
 
 
 const transferSOLTokens = async (req, res) => {

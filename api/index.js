@@ -1,20 +1,15 @@
 const { transferSOLTokens } = require("./account.middlewares");
 
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const path = require("path");
 
 // console.log("KEY",dotenv, process.env.REACT_APP_PORT);
 
 const PORT = process.env.REACT_APP_PORT || 3001;
-const URL = process.env.REACT_APP_ORIGIN
 
 const app = express();
-app.use(
-  cors({
-    origin: URL,
-  })
-);
+// app.use(cors({}));
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../", "build")));
