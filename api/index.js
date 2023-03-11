@@ -7,12 +7,12 @@ const path = require("path");
 // console.log("KEY",dotenv, process.env.REACT_APP_PORT);
 
 const PORT = process.env.REACT_APP_PORT || 3001;
-
+const URL = process.env.REACT_APP_ORIGIN
 
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: URL,
   })
 );
 
