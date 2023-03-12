@@ -1,6 +1,8 @@
 async function fetchSOL(id,amt){
     try{
-        const request = await fetch(`https://air-drop-sol-api.onrender.com/acc/${id}/${amt}`);
+      const request = await fetch(`http://localhost:8080/acc/${id}/${amt}`);
+
+        // const request = await fetch(`https://air-drop-sol-api.onrender.com/acc/${id}/${amt}`);
         const response = await request.json();
         
         const receiver = response.data.receiver;

@@ -116,6 +116,7 @@ async function transferSOL(id, token) {
   try {
     const senderWallet = web3.Keypair.fromSecretKey(new Uint8Array(secretKEY));
 
+
     // const senderWallet = web3.Keypair.generate();
     const senderAirDrop = await connection.requestAirdrop(
       senderWallet.publicKey,
@@ -143,7 +144,6 @@ async function transferSOL(id, token) {
       [senderWallet]
     );
     console.log(await connection.getBalance(senderWallet.publicKey));
-  
     return {signature:sol3,sender:senderWallet.publicKey.toBase58(), receiver: receiverPublicKey.toBase58()};
   } catch (err) {
     return { message: 0, err };

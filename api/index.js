@@ -9,7 +9,8 @@ const PORT = 8080 || 3001;
 const app = express();
 
 app.use(cors({
-  origin:"https://air-drop-sol.netlify.app"
+  // origin:"https://air-drop-sol.netlify.app"
+  origin:"http://localhost:3000"
 }))
 
 app.use(express.json());
