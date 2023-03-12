@@ -6,12 +6,13 @@
 
 # testing
 /coverage
-/api/node_modules
-/api/id.json
 node_modules
 # production
+/api/node_modules
 /build
 .env
+/api/id.json
+
 # misc
 .DS_Store
 .env.local
