@@ -6,7 +6,7 @@ const path = require("path");
 
 // console.log("KEY",dotenv, process.env.REACT_APP_PORT);
 
-const PORT = process.env.REACT_APP_PORT || 3001;
+const PORT = 8080 || 3001;
 
 const app = express();
 // app.use(cors({}));

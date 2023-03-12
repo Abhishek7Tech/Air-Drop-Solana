@@ -1,0 +1,19 @@
+{
+  "name": "airdrop-sol-api",
+  "version": "1.0.0",
+  "description": "API to fetch sol",
+  "main": "index.js",
+  "dependencies": {
+    "@solana/spl-token": "^0.3.7",
+    "@solana/web3.js": "^1.73.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node index.js"
+
+  },
+  "author": "Abhishek",
+  "license": "ISC"
+}

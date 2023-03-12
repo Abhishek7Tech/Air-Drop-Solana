@@ -6,7 +6,8 @@
 
 # testing
 /coverage
-/api/id.json
+/api/node_modules
+# /api/id.json
 node_modules
 # production
 /build
