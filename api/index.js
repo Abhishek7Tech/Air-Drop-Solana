@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors({
   // origin:"https://air-drop-sol.netlify.app"
-  origin:"http://localhost:3000"
+  // origin:"http://localhost:3000"
 }))
 
 app.use(express.json());
