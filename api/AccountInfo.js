@@ -1,8 +1,8 @@
 // import {Info} from "./senderInfo";
 const secretKEY = require("./id.json");
 const web3 = require("@solana/web3.js");
-const web3SPL = require("@solana/spl-token");
-const { getAccount } = require("@solana/spl-token");
+// const web3SPL = require("@solana/spl-token");
+// const { getAccount } = require("@solana/spl-token");
 
 // SEND TOKENS//
 
@@ -115,7 +115,6 @@ async function transferSOL(id, token) {
 
   try {
     const senderWallet = web3.Keypair.fromSecretKey(new Uint8Array(secretKEY));
-
 
     // const senderWallet = web3.Keypair.generate();
     const senderAirDrop = await connection.requestAirdrop(

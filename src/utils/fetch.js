@@ -1,8 +1,8 @@
 async function fetchSOL(id,amt){
     try{
-      const request = await fetch(`http://localhost:8080/acc/${id}/${amt}`);
+      // const request = await fetch(`http://localhost:8080/acc/${id}/${amt}`);
 
-        // const request = await fetch(`https://air-drop-sol-api.onrender.com/acc/${id}/${amt}`);
+        const request = await fetch(`https://air-drop-sol-api.onrender.com/acc/${id}/${amt}`);
         const response = await request.json();
         
         const receiver = response.data.receiver;
@@ -16,9 +16,8 @@ async function fetchSOL(id,amt){
           `);
 
           if(response.data.message === 0){
-            console.log("ERRR",response.data.err.name,response.data.err.message);
             const message = response.data.err.message || response.data.err.name;
-            alert(`Something went wrong! Try again🐱‍🚀, Error: ${message} ,🚨`);
+            alert(`Something went wrong! Try again🐱‍🚀, Error: ${message || ""} ,🚨`);
              
           }
         return response;

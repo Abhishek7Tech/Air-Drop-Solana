@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import HeaderComponent from "./components/header/Header";
 import SearchBar from "./components/searchbar/Search";
@@ -15,7 +14,7 @@ function App() {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  },[]);
+  }, []);
 
   return (
     <div className="App">
